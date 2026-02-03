@@ -37,3 +37,14 @@ Debugging integration issues
 Security auditing (who's calling our API and when)
 Compliance requirements
 Monitoring submission volume and success rates
+
+I left it out to keep the exercise focused on the core architectural patterns, but it's straightforward to add later.
+
+Enhanced Error Handling
+Current error handling returns generic messages to API callers. Production would benefit from:
+
+Structured error response objects with error codes
+Validation Errors
+Custom exception classes for different error types
+
+
