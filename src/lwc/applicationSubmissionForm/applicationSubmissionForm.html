@@ -1,0 +1,129 @@
+<template>
+    <lightning-card title="Application Submission" icon-name="standard:lead">
+
+        <template if:true={showSpinner}>
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </template>
+
+        <div class="slds-card__body slds-card__body_inner">
+            <form onsubmit={handleSubmit}>
+
+                <div class="slds-form-element slds-m-bottom_medium">
+                    <h3 class="slds-text-heading_small slds-m-bottom_small">
+                        Company Information
+                    </h3>
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="12" padding="around-small">
+                            <lightning-input
+                                    type="text"
+                                    label="Company Name"
+                                    data-field="companyName"
+                                    value={formData.companyName}
+                                    onchange={handleInputChange}
+                                    required
+                                    placeholder="Enter company name"
+                                    disabled={isLoading}>
+                            </lightning-input>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="12" small-device-size="6" padding="around-small">
+                            <lightning-input
+                                    type="text"
+                                    label="Federal Tax ID"
+                                    data-field="federalTaxId"
+                                    value={formData.federalTaxId}
+                                    onchange={handleInputChange}
+                                    placeholder="XXXXXXXXX"
+                                    disabled={isLoading}>
+                            </lightning-input>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="12" small-device-size="6" padding="around-small">
+                            <lightning-input
+                                    type="number"
+                                    label="Annual Revenue"
+                                    data-field="annualRevenue"
+                                    value={formData.annualRevenue}
+                                    onchange={handleInputChange}
+                                    formatter="currency"
+                                    min="0"
+                                    step="1"
+                                    disabled={isLoading}>
+                            </lightning-input>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+
+                <div class="slds-form-element slds-m-bottom_medium">
+                    <h3 class="slds-text-heading_small slds-m-bottom_small">
+                        Contact Information
+                    </h3>
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="12" small-device-size="6" padding="around-small">
+                            <lightning-input
+                                    type="text"
+                                    label="First Name"
+                                    data-field="contactFirstName"
+                                    value={formData.contactFirstName}
+                                    onchange={handleInputChange}
+                                    required
+                                    placeholder="Enter first name"
+                                    disabled={isLoading}>
+                            </lightning-input>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="12" small-device-size="6" padding="around-small">
+                            <lightning-input
+                                    type="text"
+                                    label="Last Name"
+                                    data-field="contactLastName"
+                                    value={formData.contactLastName}
+                                    onchange={handleInputChange}
+                                    required
+                                    placeholder="Enter last name"
+                                    disabled={isLoading}>
+                            </lightning-input>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="12" small-device-size="6" padding="around-small">
+                            <lightning-input
+                                    type="email"
+                                    label="Email"
+                                    data-field="email"
+                                    value={formData.email}
+                                    onchange={handleInputChange}
+                                    required
+                                    placeholder="contact@company.com"
+                                    disabled={isLoading}>
+                            </lightning-input>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="12" small-device-size="6" padding="around-small">
+                            <lightning-input
+                                    type="tel"
+                                    label="Phone"
+                                    data-field="phone"
+                                    value={formData.phone}
+                                    onchange={handleInputChange}
+                                    required
+                                    placeholder="(555) 555-5555"
+                                    disabled={isLoading}>
+                            </lightning-input>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+
+                <div class="slds-m-top_large slds-text-align_center">
+                    <lightning-button
+                            variant="brand"
+                            type="submit"
+                            label="Submit Application"
+                            disabled={submitButtonDisabled}
+                            class="slds-m-right_small">
+                    </lightning-button>
+                </div>
+
+            </form>
+        </div>
+    </lightning-card>
+</template>
