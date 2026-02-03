@@ -48,3 +48,7 @@ Validation Errors
 Custom exception classes for different error types
 
 
+Test Data Factory Class
+While it's a Salesforce best practice to create a centralized TestDataFactory class for generating test data (improves readability, reduces duplication, easier maintenance), I kept the test data creation inline within each test class for this exercise. This makes each test self-contained and easier to review independently without jumping between files. In a production codebase with dozens of test classes, a TestDataFactory would be essential, but for a small case study with 6 test classes, inline data creation keeps things straightforward and demonstrates that I understand how to write tests without adding unnecessary complexity.
+
+
